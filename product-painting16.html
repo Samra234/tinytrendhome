@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyTrendsHome - Ceramic Vase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <h1><a href="index.html">TinyTrendsHome</a></h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vase.html">Vases</a></li>
+                <li><a href="paintings.html">Paintings</a></li>
+                <li><a href="decor.html">Decor</a></li>
+                <li><a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- Main Content -->
+    <main>
+        <section class="product-detail">
+            <!-- Edit product details here -->
+            <div class="product-images">
+                <img src="images/walldecor/wall16.webp" alt="Flower Design" loading="lazy">
+           
+            </div>
+            <div class="product-info">
+    <h2>3D Calligraphy Wall Frames</h2>
+    <div class="product-description">
+        <h3>Abstract Art Wooden Wall Frames – Set of 3</h3>
+<ul>
+    <li>Material: Wood</li>
+    <li>Number Of Pieces: 3 Pcs</li>
+    <li>Product Design: Flower Design</li>
+    <li>Color: Multicolor</li>
+    <li>Package Includes: 3 x Wall Frame</li>
+    <li>Length: 8 Inches</li>
+    <li>Width: 11 Inches</li>
+</ul>
+
+    </div>
+
+                <p class="price">RS1040.00</p>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" min="1" value="1">
+                <button id="add-to-cart" data-product-id="painting16" class="btn">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Cart Preview</h3>
+            <div id="cart-preview"></div>
+            <button onclick="window.location.href='cart.html'">View Full Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 TinyTrendsHome. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartBtn = document.getElementById('add-to-cart');
+        if (addToCartBtn && !addToCartBtn.dataset.listenerAdded) {  // Prevent duplicate listeners
+            const productId = addToCartBtn.getAttribute('data-product-id');
+            if (productId) {
+                addToCartBtn.addEventListener('click', function() {
+                    const quantityInput = document.getElementById('quantity');
+                    const quantity = parseInt(quantityInput.value) || 1;  // Read from input, default to 1
+                    addToCart(productId, quantity);
+                });
+                addToCartBtn.dataset.listenerAdded = 'true';  // Mark as added
+            } else {
+                console.error('No product ID found on button');
+            }
+        }
+    });
+</script>
+   
+</body>
+</html>

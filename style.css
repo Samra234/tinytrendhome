@@ -1,0 +1,425 @@
+/* css/style.css - Enhanced for Beautiful UI/UX */
+
+/* Import Google Font for modern typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Clean, modern font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f4f4f4 0%, #e9ecef 100%); /* Subtle gradient background */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
+    transition: all 0.3s ease; /* Smooth page transitions */
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600; /* Bolder headings for hierarchy */
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Navigation Bar - Sleek and modern */
+nav {
+    background: linear-gradient(90deg, #333 0%, #555 100%); /* Gradient nav */
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky; /* Sticks to top on scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem; /* More spacing */
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease, transform 0.3s ease; /* Hover effects */
+}
+
+nav a:hover {
+    color: #ff6b6b; /* Accent color on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Main Content - Centered and spacious */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.category {
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.category:hover {
+  transform: translateY(-8px);
+}
+
+.category img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+
+/* Hero Section - Eye-catching banner */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Vibrant gradient */
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 12px;
+    margin-left: 2rem;
+}
+
+/* Buttons - Rounded, colorful, and interactive */
+.btn {
+    background: linear-gradient(45deg, #ff6b6b, #ffa500); /* Gradient button */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px; /* Fully rounded */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* For links */
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: scale(1.05); /* Grow on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn {
+    font-size: 1.1rem;
+}
+
+/* Category Grid - Card-based with hover effects */
+.categories h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+}
+
+.category-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden; /* For image scaling */
+    padding: 1rem;
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.05); /* Zoom image on hover */
+}
+
+.category-card h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Product Grid - Similar to categories, with more details */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.product-card p {
+    font-weight: 600;
+    color: #ff6b6b; /* Accent for price */
+}
+
+.product-card button {
+    margin-top: 1rem;
+}
+
+/* Product Detail Page */
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.product-images {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-images img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+}
+
+.product-info .price {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+.product-info label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+}
+
+/* Cart and Checkout */
+.cart-item, .cart-item div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.checkout form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.checkout label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 600;
+}
+
+.checkout input, .checkout textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.checkout input:focus, .checkout textarea:focus {
+    border-color: #ff6b6b;
+    outline: none;
+}
+
+/* Modal (Cart Preview) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #ff6b6b;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    .product-detail {
+        flex-direction: column;
+    }
+    .category-grid, .product-grid {
+        grid-template-columns: 1fr;
+    }
+    .product-description {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+}
+h3 {
+    color: #333;
+}
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+}

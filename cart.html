@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyTrendsHome - Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <h1><a href="index.html">TinyTrendsHome</a></h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vase.html">Vases</a></li>
+                <li><a href="paintings.html">Paintings</a></li>
+                <li><a href="decor.html">Decor</a></li>
+                <li><a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- Main Content -->
+    <main>
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
+            <button id="checkout-btn" class="btn">Checkout</button>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Cart Preview</h3>
+            <div id="cart-preview"></div>
+            <button onclick="window.location.href='cart.html'">View Full Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 TinyTrendsHome. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        loadCart();
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html';
+        });
+    </script>
+</body>
+</html>
