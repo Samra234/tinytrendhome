@@ -72,7 +72,7 @@
     // Function to send order to Google Sheets
     async function placeOrder(order) {
         try {
-            const response = await fetch('YOUR_WEB_APP_URL', {  // Replace with your Apps Script Web App URL
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxk8tQEZV3jDwxZbBeB_tXrIg8G7SgMHv7JEs1DD_9sfRut075OglDgl3kZ5DXvIrf0/exec', {  // Replace with your Apps Script Web App URL
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(order)
