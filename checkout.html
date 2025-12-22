@@ -21,6 +21,9 @@
             </ul>
         </div>
     </nav>
+    <footer>
+        <p>&copy; 2023 TinyTrendsHome. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
 
     <!-- Main Content -->
     <main>
@@ -29,94 +32,77 @@
             <form id="checkout-form">
                 <label for="name">Name:</label>
                 <input type="text" id="name" required>
-
                 <label for="email">Email:</label>
                 <input type="email" id="email" required>
-
                 <label for="address">Address:</label>
                 <textarea id="address" required></textarea>
-
                 <label for="phone">Phone:</label>
                 <input type="tel" id="phone" required>
             </form>
-
             <div id="order-summary"></div>
             <button id="place-order" class="btn">Place Order</button>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2023 TinyTrendsHome. All rights reserved. | <a href="#">Privacy Policy</a></p>
-    </footer>
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Cart Preview</h3>
+            <div id="cart-preview"></div>
+            <button onclick="window.location.href='cart.html'">View Full Cart</button>
+        </div>
+    </div>
 
+    this is my checkout html page code correct this if it is false: <script src="script.js"></script>
     <script>
-    // Function to display order summary from localStorage cart
-    function loadOrderSummary() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const summaryDiv = document.getElementById('order-summary');
-        if(cart.length === 0){
-            summaryDiv.innerHTML = '<p>Your cart is empty!</p>';
-            return;
-        }
-
-        let html = '<h3>Order Summary:</h3><ul>';
-        cart.forEach(item => {
-            html += `<li>${item.name} - Quantity: ${item.qty}</li>`;
-        });
-        html += '</ul>';
-        summaryDiv.innerHTML = html;
-    }
-
-    loadOrderSummary();
-
-    // Function to send order to Google Sheets
-    async function placeOrder(order) {
-        try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbxk8tQEZV3jDwxZbBeB_tXrIg8G7SgMHv7JEs1DD_9sfRut075OglDgl3kZ5DXvIrf0/exec', {  // Replace with your Apps Script Web App URL
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(order)
-            });
-
-            if (response.ok) {
+        loadOrderSummary();
+        document.getElementById('place-order').addEventListener('click', function() {
+            if (document.getElementById('checkout-form').checkValidity()) {
                 alert('Thank you for your order!');
-                localStorage.removeItem('cart');  // Clear cart
-                window.location.href = 'index.html';  // Redirect
+                localStorage.removeItem('cart');
+                window.location.href = 'index.html';
             } else {
-                alert('Failed to place order. Try again.');
+                alert('Please fill in all fields.');
             }
-        } catch (error) {
-            console.error(error);
-            alert('Error sending order. Check console.');
-        }
-    }
-
-    // Checkout button click handler
-    document.getElementById('place-order').addEventListener('click', async function(event){
-        event.preventDefault(); // Prevent default form submission
-
-        const form = document.getElementById('checkout-form');
-        if(!form.checkValidity()){
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        if(cart.length === 0){
-            alert('Your cart is empty!');
-            return;
-        }
-
-        const order = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            address: document.getElementById('address').value,
-            items: cart
-        };
-
-        await placeOrder(order);
-    });
+        });
     </script>
+    <script>
+  async function placeOrder(order) {
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxk8tQEZV3jDwxZbBeB_tXrIg8G7SgMHv7JEs1DD_9sfRut075OglDgl3kZ5DXvIrf0/exec', {  // replace with your Web App URL
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+      });
+
+      if (response.ok) {
+        alert('Order placed successfully!');
+      } else {
+        alert('Failed to place order. Try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error sending order. Check console.');
+    }
+  }
+
+  document.getElementById('place-order').addEventListener('click', () => {
+    const order = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      address: document.getElementById('address').value,
+      items: [
+        { name: "Product A", qty: 2 },
+        { name: "Product B", qty: 1 }
+      ]
+    };
+
+    placeOrder(order);
+  });
+</script>
+
+
 </body>
 </html>
