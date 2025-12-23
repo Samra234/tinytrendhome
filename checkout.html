@@ -70,11 +70,13 @@
     // Place order function
     async function placeOrder(order) {
       try {
-        const response = await fetch('http://localhost:5000/api/orders', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(order)
-        });
+        const url = 'http://localhost:5000/api/orders'.trim(); // remove hidden spaces/newlines
+await fetch(url, { 
+  method: 'POST', 
+  headers: { 'Content-Type': 'application/json' }, 
+  body: JSON.stringify(order) 
+});
+
 
         if (response.ok) {
           alert('Thank you! Your order was placed successfully.');
